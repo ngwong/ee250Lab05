@@ -49,7 +49,7 @@ def read_sound(delay, amount):
 		print (sound_val)
 		if (sound_val > sound_threshold):
 			blink_once(delay)
-			amount--
+			amount -= 1
 		else:
 			time.sleep(delay)
 
