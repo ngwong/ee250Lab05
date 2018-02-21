@@ -10,7 +10,7 @@ MOSI = 24
 CS   = 25
 mcp = Adafruit_MCP3008.MCP3008(clk=CLK, cs=CS, miso=MISO, mosi=MOSI)
 
-light = 1
+light = 0
 led = 17
 
 #delay in seconds and amount of times to blink
@@ -28,7 +28,7 @@ def read_light(delay, amount):
 		time.sleep(delay)
 
 def Main():
-	#GPIO.setmode(GPIO.BOARD)
+	#GPIO is set to BCM Mode
 	GPIO.setwarnings(False)
 	blink(.5, 5)
 	read_light(.1, 50)
