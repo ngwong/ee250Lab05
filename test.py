@@ -2,17 +2,18 @@ import RPi.GPIO as GPIO
 
 led = 11
 
-def blink():
+#delay in seconds and amount of times to blink
+def blink(delay, amount):
 	GPIO.setup(led, GPIO.OUT)
-	for i in range (0, 5):
+	for i in range (0, amount):
 		GPIO.output(led, GPIO.HIGH)
-		time.sleep(0.1)
+		time.sleep(delay)
 		GPIO.output(led, GPIO.LOW)
-		time.sleep(0.1)	
+		time.sleep(delay)	
 
 def Main():
 	GPIO.setmode(GPIO.BOARD)
-	blink()
+	blink(.5, 5)
 
 if __name__ = '__main__':
 	Main()
