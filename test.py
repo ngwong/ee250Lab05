@@ -57,6 +57,7 @@ def read_sound(delay, amount):
 			time.sleep(delay)
 
 def Main():
+	init()
 	blink(.5, 5)
 	read_light(.1, 50)
 	blink(.2, 4)
