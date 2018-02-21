@@ -27,7 +27,7 @@ def read_light(delay, amount):
 		time.sleep(delay)
 
 def Main():
-	GPIO.setmode(GPIO.BOARD)
+	#GPIO.setmode(GPIO.BOARD)
 	GPIO.setwarnings(False)
 	blink(.5, 5)
 	read_light(.1, 50)
