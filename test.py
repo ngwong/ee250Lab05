@@ -12,6 +12,7 @@ def blink():
 
 def Main():
 	GPIO.setmode(GPIO.BOARD)
+	blink()
 
 if __name__ = '__main__':
 	Main()
