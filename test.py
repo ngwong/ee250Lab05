@@ -4,14 +4,20 @@ import Adafruit_MCP3008
 
 import time
 
-CLK  = 18
-MISO = 23
-MOSI = 24
-CS   = 25
+CLK  = 11
+MISO = 9
+MOSI = 10
+CS   = 8
 mcp = Adafruit_MCP3008.MCP3008(clk=CLK, cs=CS, miso=MISO, mosi=MOSI)
 
+#Light and Sound ports not working, LED Working
 light = 0
+sound = 1
 led = 17
+
+#Sample Values, Real Values need to be tested
+light_threshold = 50
+sound_threshold = 50
 
 #delay in seconds and amount of times to blink
 def blink(delay, amount):
@@ -22,10 +28,30 @@ def blink(delay, amount):
 		GPIO.output(led, GPIO.LOW)
 		time.sleep(delay)	
 
+def blink_once(delay):
+	GPIO.output(led, GPIO.HIGH)
+	time.sleep(delay)
+	time.output(led, GPIO.LOW)
+
 def read_light(delay, amount):
 	for i in range (amount):
-		print(mcp.read_adc(light))
+		light_val = mcp.read_adc(light)
+		print(light_val)
+		if (light_val > light_threshold):
+			print ("Bright")
+		else:
+			print ("Dark")
 		time.sleep(delay)
+
+def read_sound(delay, amount):
+	for i in range (amount):
+		sound_val = mcp.read_adc(sound)
+		print (sound_val)
+		if (sound_val > sound_threshold):
+			blink_once(delay)
+			amount--
+		else:
+			time.sleep(delay)
 
 def Main():
 	#GPIO is set to BCM Mode
