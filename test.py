@@ -16,7 +16,7 @@ sound = 1
 led = 17
 
 #Sample Values, Real Values need to be tested
-light_threshold = 50
+light_threshold = 500
 sound_threshold = 50
 
 #delay in seconds and amount of times to blink
@@ -36,11 +36,10 @@ def blink_once(delay):
 def read_light(delay, amount):
 	for i in range (amount):
 		light_val = mcp.read_adc(light)
-		print(light_val)
 		if (light_val > light_threshold):
-			print ("Bright")
+			print (light_val + " Bright")
 		else:
-			print ("Dark")
+			print (light_val + " Dark")
 		time.sleep(delay)
 
 def read_sound(delay, amount):
@@ -58,6 +57,9 @@ def Main():
 	GPIO.setwarnings(False)
 	blink(.5, 5)
 	read_light(.1, 50)
+	blink(.2, 4)
+	read_sound(.1, 50)
+	blink(.2, 4)
 
 if __name__ == '__main__':
 	Main()
