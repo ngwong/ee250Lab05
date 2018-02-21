@@ -14,6 +14,7 @@ def blink(delay, amount):
 
 def Main():
 	GPIO.setmode(GPIO.BOARD)
+	GPIO.setwarnings(False)
 	blink(.5, 5)
 
 if __name__ == '__main__':
