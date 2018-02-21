@@ -10,6 +10,7 @@ MOSI = 24
 CS   = 25
 mcp = Adafruit_MCP3008.MCP3008(clk=CLK, cs=CS, miso=MISO, mosi=MOSI)
 
+light = 1
 led = 11
 
 #delay in seconds and amount of times to blink
@@ -23,7 +24,7 @@ def blink(delay, amount):
 
 def read_light(delay, amount):
 	for i in range (amount):
-		print(mcp.read_adc(i))
+		print(mcp.read_adc(light))
 		time.sleep(delay)
 
 def Main():
