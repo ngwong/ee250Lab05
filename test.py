@@ -10,7 +10,6 @@ MOSI = 10
 CS   = 8
 mcp = Adafruit_MCP3008.MCP3008(clk=CLK, cs=CS, miso=MISO, mosi=MOSI)
 
-#Light and Sound ports not working, LED Working
 light = 0
 sound = 1
 led = 17
@@ -35,7 +34,7 @@ def blink(delay, amount):
 def blink_once(delay):
 	GPIO.output(led, GPIO.HIGH)
 	time.sleep(delay)
-	time.output(led, GPIO.LOW)
+	GPIO.output(led, GPIO.LOW)
 
 def read_light(delay, amount):
 	for i in range (amount):
