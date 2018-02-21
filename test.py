@@ -19,9 +19,13 @@ led = 17
 light_threshold = 500
 sound_threshold = 50
 
+def init():
+	#GPIO is set to BCM Mode
+	GPIO.setwarnings(False)
+	GPIO.setup(led, GPIO.OUT)
+
 #delay in seconds and amount of times to blink
 def blink(delay, amount):
-	GPIO.setup(led, GPIO.OUT)
 	for i in range (amount):
 		GPIO.output(led, GPIO.HIGH)
 		time.sleep(delay)
@@ -37,9 +41,9 @@ def read_light(delay, amount):
 	for i in range (amount):
 		light_val = mcp.read_adc(light)
 		if (light_val > light_threshold):
-			print (light_val + " Bright")
+			print (str(light_val) + " Bright")
 		else:
-			print (light_val + " Dark")
+			print (str(light_val) + " Dark")
 		time.sleep(delay)
 
 def read_sound(delay, amount):
@@ -53,8 +57,6 @@ def read_sound(delay, amount):
 			time.sleep(delay)
 
 def Main():
-	#GPIO is set to BCM Mode
-	GPIO.setwarnings(False)
 	blink(.5, 5)
 	read_light(.1, 50)
 	blink(.2, 4)
