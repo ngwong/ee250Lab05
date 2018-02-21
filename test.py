@@ -10,13 +10,16 @@ MOSI = 10
 CS   = 8
 mcp = Adafruit_MCP3008.MCP3008(clk=CLK, cs=CS, miso=MISO, mosi=MOSI)
 
+#
 light = 0
 sound = 1
+
+# Raspberry Pi Pin 11
 led = 17
 
-#Sample Values, Real Values need to be tested
+# Sample Values, Real Values need to be tested
 light_threshold = 500
-sound_threshold = 50
+sound_threshold = 500
 
 def init():
 	#GPIO is set to BCM Mode
