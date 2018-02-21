@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import ADAfruit_GPIO.SPI as SPI
+import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 
 import time
